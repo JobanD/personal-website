@@ -11,6 +11,10 @@ import ProfilePhoto from "../assets/headshot.JPEG";
 
 export default function Home() {
   const [height, width] = useWindowSize(); // height and width of viewport
+  const projectsWaveStyle = { transform: "rotate(180) translate(700 0)" };
+  const projectsWaveStyle2 = {
+    transform: "rotate(180) tscale(-1 1) translate(-100 0)",
+  };
 
   // CURSOR
 
@@ -143,7 +147,8 @@ export default function Home() {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1650 120"
               preserveAspectRatio="none"
-              transform="rotate(180) translate(700 0)"
+              style={projectsWaveStyle}
+              // transform="rotate(180) translate(700 0)"
             >
               <path
                 d="M 321.4 56.4 c 58 -10.8 114.2 -30.1 172 -41.9 c 82.4 -16.7 168.2 -17.7 250.4 -0.4 C 823.8 31 906.7 72 985.7 92.8 c 70 18.5 146.5 26.1 268.3 -31.8 C 1290 44 1317 23 1340 0 V 0 H 0 V 3 A 600.2 600.2 0 0 0 321.4 56.4 Z"
@@ -157,7 +162,7 @@ export default function Home() {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 1650 120"
               preserveAspectRatio="none"
-              transform="rotate(180) scale(-1 1) translate(-100 0)"
+              style={projectsWaveStyle2}
             >
               <path
                 d="M 321.4 56.4 c 58 -10.8 114.2 -30.1 172 -41.9 c 82.4 -16.7 168.2 -17.7 250.4 -0.4 C 823.8 31 906.7 72 985.7 92.8 c 70 18.5 146.5 26.1 268.3 -31.8 C 1290 44 1317 23 1340 0 V 0 H 0 V 3 A 600.2 600.2 0 0 0 321.4 56.4 Z"
