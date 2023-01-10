@@ -178,14 +178,14 @@
 .project-waves {
   display: flex;
   width: 100%;
-  border-bottom: 2px solid var(--main-charcoal-color);
+  padding-top: 50px;
 }
 
 .wave-about {
   top: 0;
   left: 0;
-  width: 100%;
-  min-width: 100%;
+  width: 300%;
+  min-width: 300%;
   /* overflow: hidden; */
   line-height: 0;
 }
@@ -245,7 +245,7 @@
 }
 
 .wave-projects {
-  /* position: absolute; */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -258,7 +258,7 @@
   position: relative;
   display: block;
   width: calc(200% + 1.3px);
-  height: 115px;
+  height: 65px;
 }
 
 .wave-projects .shape-fill {
@@ -266,11 +266,11 @@
 }
 
 .wave-projects2 {
-  /* position: absolute; */
+  position: absolute;
   top: 0;
-  left: 10%;
-  width: 100%;
-  min-width: 100%;
+  left: 100%;
+  width: 300%;
+  min-width: 300%;
   /* overflow: hidden; */
   line-height: 0;
 }
@@ -279,7 +279,8 @@
   position: relative;
   display: block;
   width: calc(200% + 1.3px);
-  height: 115px;
+  height: 65px;
+  transform: translateX(-100px);
 }
 
 .wave-projects2 .shape-fill {
@@ -310,11 +311,11 @@
   animation-name: wave;
   animation-duration: 17s;
   animation-timing-function: linear;
-  animation-fill-mode: infinite;
+  animation-iteration-count: infinite;
   -webkit-animation-name: wave;
   -webkit-animation-duration: 17s;
   -webkit-animation-timing-function: linear;
-  -webkit-animation-fill-mode: infinite;
+  -webkit-animation-iteration-count: infinite;
 }
 
 .wave2 {
@@ -328,7 +329,7 @@
   }
 
   50% {
-    transform: translateX(-130%);
+    transform: translateX(-100%);
   }
 
   100% {
@@ -342,7 +343,7 @@
   }
 
   50% {
-    transform: translateX(-130%);
+    transform: translateX(-100%);
   }
 
   100% {
