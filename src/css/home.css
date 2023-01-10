@@ -307,8 +307,14 @@
 /* WAVE ANIMATION */
 
 .wave {
-  animation: wave 17s linear infinite;
-  -webkit-animation: wave 17s linear infinite;
+  animation-name: wave;
+  animation-duration: 17s;
+  animation-timing-function: linear;
+  animation-fill-mode: infinite;
+  -webkit-animation-name: wave;
+  -webkit-animation-duration: 17s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-fill-mode: infinite;
 }
 
 .wave2 {
