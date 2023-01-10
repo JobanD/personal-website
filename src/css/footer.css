@@ -1,0 +1,7 @@
+.footer-container {
+  background-color: var(--main-charcoal-color);
+  color: #fff7eaf0;
+  width: 100vw;
+  max-width: var(--max-width);
+  align-self: center;
+}

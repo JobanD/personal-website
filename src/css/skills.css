@@ -1,0 +1,76 @@
+.skills-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* padding: 100px; */
+  width: 100vw;
+  max-width: var(--max-width);
+}
+
+@media only screen and (max-width: 800px) {
+  .skills-container {
+    flex-wrap: wrap;
+  }
+}
+
+.skills-sections-container {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  flex-wrap: wrap;
+}
+
+.skills-content-container {
+  display: flex;
+}
+
+.skills-lists-container {
+  display: flex;
+  flex: 1 1 calc(33.33% - 20px);
+  flex-wrap: wrap;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: row;
+  padding: 300px;
+  flex-wrap: wrap;
+  gap: 5vw;
+  justify-content: center;
+}
+
+.skills-list ul {
+  display: inline-block;
+  text-align: center;
+}
+
+.skills-list > .MuiListItem-root {
+  display: flex;
+  flex-direction: column;
+  width: 75px;
+}
+
+.skills-list .MuiListItem-root:hover {
+  color: var(--main-orange-color);
+}
+
+.skills-list .MuiListItem-root:hover > .svgIcon {
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+
+.svgIcon {
+  transition: all 1s ease-in-out;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(360deg) scale(2);
+  }
+
+  to {
+    transform: rotate(0deg) scale(1);
+  }
+}

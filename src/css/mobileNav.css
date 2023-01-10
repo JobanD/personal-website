@@ -1,0 +1,161 @@
+.mobile-nav-container {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  /* padding: 0.5rem 0rem; */
+  color: black;
+  text-decoration: none;
+  font-size: 1.3rem;
+  /* box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23); */
+}
+
+.navigation-menu {
+  margin-left: auto;
+}
+
+.navigation-menu .nav-menu-items {
+  /* display: none; */
+  transform: translate3d(0, -105vh, 0);
+  transition: all 0.5s ease-in-out;
+  padding: 0;
+}
+
+.navigation-menu li {
+  /* removes default disc bullet for li tags and applies margin to left & right side */
+  list-style-type: none;
+  margin: 0 1rem;
+}
+
+.navigation-menu li a {
+  /* increases the surface area of the anchor tag to span more than just the anchor text */
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+
+/* Styling on expansion of menu */
+.navigation-menu .nav-menu-items {
+  /* navigation menu is positioned to start 60px from the top of the document (which is directly below the navbar) */
+  position: absolute;
+  top: 0px;
+  left: 0;
+  /* stacks the li tags vertically  */
+  flex-direction: column;
+  /* makes menu span full height and width */
+  width: 100%;
+  height: calc(100vh);
+  background-color: var(--main-charcoal-color);
+  color: #fff7eaf0;
+  border-top: 1px solid black;
+}
+
+.nav-menu-list {
+  padding: 0;
+}
+
+.navigation-menu .nav-menu-items .nav-menu-list ul {
+  display: flex;
+  flex-direction: column;
+  color: #fff7eaf0;
+}
+.navigation-menu li {
+  /* centers link text and strips off margin */
+  text-align: center;
+  margin: 0;
+}
+.navigation-menu .nav-menu-list li a {
+  color: #fff7eaf0;
+  /* increases the surface area of the anchor tag to span the full width of the menu */
+  width: 100%;
+  padding: 1.5rem 0;
+  transition: all 0.3s ease-in-out;
+}
+.navigation-menu .nav-menu-list li:hover > a {
+  background-color: var(--main-cream-color);
+  color: black;
+}
+
+.navigation-menu.expanded {
+  transition: width 0.7s ease 0.3s, height 0.3s ease;
+}
+.navigation-menu.expanded .nav-menu-items {
+  /* display: block; */
+  transform: translate3d(0, 0, 0);
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger {
+  /* removes default border on button element */
+  border: 0;
+  height: 60px;
+  width: 60px;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--main-purple-color);
+  color: #fff7eaf0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  z-index: 9;
+  /* positions the icon to the right and center aligns it vertically */
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  /* margin-right: -850px; */
+  display: block;
+}
+
+/* So nav button says in top right corner of app rather than screen */
+@media only screen and (min-width: 1800px) {
+  .hamburger {
+    right: 50%;
+    margin-right: -850px;
+  }
+}
+
+.hamburger:hover {
+  background-color: var(--main-orange-color);
+}
+
+.socialBox {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.socialBox a {
+  color: #fff7eaf0;
+}
+
+.socialBox ul {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+}
+
+.socialBox li:hover > a div {
+  transform: translateX(20px) translateY(-20px) scale(1.3);
+}
+
+/* Align icons with center of div */
+.socialBox li a div {
+  transition: all 0.3s ease-in-out;
+}
+
+.socialBox .github-avatar {
+  transform: translateX(30%);
+}
+
+.socialBox .linkedin-avatar {
+  transform: translateX(50%);
+}
+
+.socialBox .resume-avatar {
+  transform: translateX(50%);
+}
+
+.hamburger > svg {
+  transform: scale(1.3);
+}

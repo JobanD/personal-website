@@ -1,0 +1,28 @@
+.about-me-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  width: 100vw;
+  max-width: var(--max-width);
+  background-color: var(--main-charcoal-color);
+  color: #fff7eaf0;
+  flex-wrap: wrap;
+}
+
+.about-me-container a {
+  text-decoration: none;
+  color: var(--main-orange-color);
+}
+
+.about-me-container a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #fff7eaf0;
+}
+
+.about-me-description {
+  padding-top: 3rem;
+  width: 70%;
+  overflow-wrap: normal;
+}

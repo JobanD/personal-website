@@ -1,0 +1,125 @@
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  width: 100vw;
+  max-width: var(--max-width);
+}
+
+.contact-container a {
+  text-decoration: none;
+}
+
+.contact-container a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.contact-blurb {
+  /* display: flex; */
+  /* gap: 40px; */
+  width: 70%;
+}
+
+.contact-socials ul {
+  display: flex;
+  padding: 0;
+  justify-content: space-evenly;
+}
+
+.contact-socials li {
+  list-style-type: none;
+}
+
+.contact-socials li a {
+  transition: all 0.2s ease-in-out;
+}
+
+.contact-socials li a div {
+  transition: all 0.2s ease-in-out;
+}
+
+.contact-socials li a:hover > .avatar {
+  background-color: var(--main-purple-color);
+}
+
+.contact-socials .github-avatar {
+  transform: translateX(15%);
+}
+
+.contact-socials .linkedin-avatar {
+  transform: translateX(30%);
+}
+
+.contact-socials .resume-avatar {
+  transform: translateX(30%);
+}
+
+.form-container {
+  background-color: var(--main-purple-color);
+  border-radius: 15px;
+  width: 70%;
+  padding: 20px;
+  border: 2px solid var(--main-charcoal-color);
+}
+
+.form-element {
+  padding: 20px;
+}
+
+.form-element label {
+  display: flex;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.form-element input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid var(--main-cream-color);
+  font-size: 1.25em;
+}
+
+.submit {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--main-charcoal-color);
+  background-color: var(--main-cream-color);
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
+    5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.submit:hover {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .submit {
+    padding: 0.25em 0.75em;
+  }
+}
+
+.message textarea {
+  height: 100px;
+  width: 100%;
+  border: 2px solid var(--main-cream-color);
+}
