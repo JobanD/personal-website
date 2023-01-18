@@ -138,7 +138,9 @@ export default function Contact() {
             ></textarea>
             {errors.message && <div>errors.message.message</div>}
           </div>
-          <button className="submit">Send Message</button>
+          <button type="submit" className="submit">
+            Send Message
+          </button>
         </form>
       </div>
     </div>
