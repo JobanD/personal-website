@@ -17,6 +17,7 @@ export default function Contact() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({ mode: "onblur" }); // destructure needed things from useForm
 
@@ -29,8 +30,28 @@ export default function Contact() {
     },
   });
 
-  const handleRegistration = (data) => netlify.handleSubmit(null, data);
-  const handleError = (errors) => {};
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  };
+
+  handleSubmit = (data, e) => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact v2", body: data }),
+    })
+      .then(() => alert("Success!"))
+      .catch((error) => alert(error));
+
+    e.preventDefault();
+  };
+
+  // const handleRegistration = (data) => netlify.handleSubmit(null, data);
+  // const handleError = (errors) => {};
 
   const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i;
 
@@ -96,7 +117,7 @@ export default function Contact() {
           name="contact v2"
           method="post"
           // data-netlify="true"
-          onSubmit={handleSubmit(handleRegistration, handleError)}
+          onSubmit={handleSubmit()}
           data-netlify-honeypot="bot-field"
           netlify
         >
