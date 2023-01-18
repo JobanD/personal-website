@@ -15,6 +15,14 @@
     <title>Joban's Portfolio</title>
   </head>
   <body>
+    <!-- A little help for the Netlify post-processing bots -->
+    <form name="contact v1" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+    </form>
+    <!--END OF HIDDEN FORM-->
     <div id="root"></div>
     <script type="module" src="/src/index.js"></script>
   </body>
