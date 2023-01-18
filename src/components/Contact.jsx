@@ -1,9 +1,9 @@
 import React from "react";
 import {
   useNetlifyForm,
-  NetlifyFormProvider,
-  NetlifyFormComponent,
-  Honeypot,
+  // NetlifyFormProvider,
+  // NetlifyFormComponent,
+  // Honeypot,
 } from "react-netlify-forms";
 import { useForm } from "react-hook-form";
 import Pdf from "../assets/Joban_CV.pdf";
@@ -95,7 +95,7 @@ export default function Contact() {
         <form
           name="contact v1"
           method="post"
-          data-netlify="true"
+          // data-netlify="true"
           onSubmit={handleSubmit(handleRegistration, handleError)}
           data-netlify-honeypot="bot-field"
           netlify
