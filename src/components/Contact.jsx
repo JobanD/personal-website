@@ -38,7 +38,7 @@ export default function Contact() {
       .join("&");
   };
 
-  handleSubmit = (data, e) => {
+  const onSubmit = (data, e) => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -117,7 +117,7 @@ export default function Contact() {
           name="contact v2"
           method="post"
           // data-netlify="true"
-          onSubmit={handleSubmit()}
+          onSubmit={handleSubmit(onSubmit)}
           data-netlify-honeypot="bot-field"
           netlify
         >
