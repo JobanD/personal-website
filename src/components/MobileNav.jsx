@@ -48,7 +48,7 @@ export default function MobileNav() {
                   to="home"
                   spy={true}
                   smooth={true}
-                  offset={-200}
+                  offset={0}
                   duration={100}
                 >
                   <Typography variant="h4">Home</Typography>
@@ -61,7 +61,7 @@ export default function MobileNav() {
                   to="about"
                   spy={true}
                   smooth={true}
-                  offset={-200}
+                  offset={0}
                   duration={100}
                 >
                   <Typography variant="h4">About</Typography>
@@ -74,7 +74,7 @@ export default function MobileNav() {
                   to="skills"
                   spy={true}
                   smooth={true}
-                  offset={-200}
+                  offset={-100}
                   duration={100}
                 >
                   <Typography variant="h4">Skills</Typography>
@@ -87,7 +87,7 @@ export default function MobileNav() {
                   to="projects"
                   spy={true}
                   smooth={true}
-                  offset={-200}
+                  offset={-50}
                   duration={100}
                 >
                   <Typography variant="h4">Projects</Typography>

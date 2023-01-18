@@ -1,10 +1,10 @@
 import React from "react";
-// import {
-//   useNetlifyForm,
-//   NetlifyFormProvider,
-//   NetlifyFormComponent,
-//   Honeypot,
-// } from "react-netlify-forms";
+import {
+  useNetlifyForm,
+  NetlifyFormProvider,
+  NetlifyFormComponent,
+  Honeypot,
+} from "react-netlify-forms";
 import { useForm } from "react-hook-form";
 import Pdf from "../assets/Joban_CV.pdf";
 import "../css/contact.css";
@@ -18,10 +18,21 @@ export default function Contact() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm(); // destructure needed things from useForm
+  } = useForm({ mode: "onblur" }); // destructure needed things from useForm
 
-  const handleRegistration = (data) => console.log(data);
+  const netlify = useNetlifyForm({
+    name: "react-hook-form",
+    action: "/thanks",
+    honeypotName: "bot-field",
+    onSuccess: (response, context) => {
+      console.log("Successfully sent form data to Netlify Server");
+    },
+  });
+
+  const handleRegistration = (data) => netlify.handleSubmit(null, data);
   const handleError = (errors) => {};
+
+  const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i;
 
   return (
     <div className="contact-container" id="contact">
@@ -79,35 +90,52 @@ export default function Contact() {
           </ul>
         </div>
       </div>
+      {/* CONTACT FORM */}
       <div className="form-container">
         <form
           name="contact v1"
           method="post"
           data-netlify="true"
           onSubmit={handleSubmit(handleRegistration, handleError)}
+          data-netlify-honeypot="bot-field"
         >
           <div className="form-element">
             <input type="hidden" name="form-name" value="contact v1" />
-            <label>Name</label>
-            <input name="name" {...register("name")} />
-            {errors?.name && errors.name.message}
+            <div hidden>
+              <input type="bot-field" />
+            </div>
+            <label htmlFor="name">Name</label>
+            <input id="name" name="name" {...register("name")} />
+            {errors.name && <div>errors.name.message</div>}
           </div>
           <div className="form-element">
-            <label>Email</label>
+            <label htmlFor="email">Email</label>
             <input
+              id="email"
               type="email"
               name="email"
-              {...register("email", { required: true })}
+              {...register("email", {
+                required: "Email is required",
+                pattern: {
+                  value: EMAIL_REGEX,
+                  message: "Invalid email address",
+                },
+              })}
             />
-            {errors?.name && errors.name.message}
+            {errors.email && <div>errors.email.message</div>}
           </div>
           <div className="form-element">
-            <label>Subject</label>
-            <input name="subject" {...register("subject")} />
+            <label htmlFor="subject">Subject</label>
+            <input id="subject" name="subject" {...register("subject")} />
           </div>
           <div className="form-element message">
-            <label>Message</label>
-            <textarea name="message" {...register("message")}></textarea>
+            <label htmlFor="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              {...register("message", { required: "Message is required" })}
+            ></textarea>
+            {errors.message && <div>errors.message.message</div>}
           </div>
           <button className="submit">Send Message</button>
         </form>

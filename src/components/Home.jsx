@@ -61,7 +61,7 @@ export default function Home() {
               to="about"
               spy={true}
               smooth={true}
-              offset={-200}
+              offset={0}
               duration={300}
               className="about-me-main"
             >
