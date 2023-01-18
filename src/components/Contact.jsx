@@ -93,7 +93,7 @@ export default function Contact() {
       {/* CONTACT FORM */}
       <div className="form-container">
         <form
-          name="contact v1"
+          name="contact v2"
           method="post"
           // data-netlify="true"
           onSubmit={handleSubmit(handleRegistration, handleError)}
@@ -101,7 +101,7 @@ export default function Contact() {
           netlify
         >
           <div className="form-element">
-            <input type="hidden" name="form-name" value="contact v1" />
+            <input type="hidden" name="form-name" value="contact v2" />
             <div hidden>
               <input type="bot-field" />
             </div>
@@ -138,7 +138,12 @@ export default function Contact() {
             ></textarea>
             {errors.message && <div>errors.message.message</div>}
           </div>
-          <button type="submit" className="submit">
+          <button
+            type="submit"
+            className="submit"
+            form="contact v2"
+            value="submit"
+          >
             Send Message
           </button>
         </form>
