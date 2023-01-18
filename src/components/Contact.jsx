@@ -101,7 +101,7 @@ export default function Contact() {
           netlify
         >
           <div className="form-element">
-            <input type="hidden" name="form-name" value="contact v1" />
+            <input type="hidden" name="contact v1" value="contact v1" />
             <div hidden>
               <input type="bot-field" />
             </div>
