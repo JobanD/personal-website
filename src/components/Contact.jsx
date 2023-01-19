@@ -1,11 +1,4 @@
 import React from "react";
-import {
-  useNetlifyForm,
-  // NetlifyFormProvider,
-  // NetlifyFormComponent,
-  // Honeypot,
-} from "react-netlify-forms";
-import { useForm } from "react-hook-form";
 import Pdf from "../assets/Joban_CV.pdf";
 import "../css/contact.css";
 import { Typography, Avatar } from "@mui/material";
@@ -14,47 +7,6 @@ import LinkedinPng from "../assets/linkedin.png";
 import ResumePng from "../assets/resume.png";
 
 export default function Contact() {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm({ mode: "onblur" }); // destructure needed things from useForm
-
-  const netlify = useNetlifyForm({
-    name: "react-hook-form",
-    action: "/thanks",
-    honeypotName: "bot-field",
-    onSuccess: (response, context) => {
-      console.log("Successfully sent form data to Netlify Server");
-    },
-  });
-
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-      )
-      .join("&");
-  };
-
-  const onSubmit = (data, e) => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact v2", body: data }),
-    })
-      .then(() => alert("Success!"))
-      .catch((error) => alert(error));
-
-    e.preventDefault();
-  };
-
-  // const handleRegistration = (data) => netlify.handleSubmit(null, data);
-  // const handleError = (errors) => {};
-
-  const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i;
-
   return (
     <div className="contact-container" id="contact">
       <div className="contact-blurb">
@@ -116,55 +68,32 @@ export default function Contact() {
         <form
           name="contact v2"
           method="post"
-          // data-netlify="true"
-          onSubmit={handleSubmit(onSubmit)}
-          data-netlify-honeypot="bot-field"
-          netlify
+          data-netlify="true"
+          onSubmit="submit"
         >
+          <input type="hidden" name="form-name" value="contact v2" />
+
           <div className="form-element">
-            <input type="hidden" name="form-name" value="contact v2" />
-            <div hidden>
-              <input type="bot-field" />
-            </div>
             <label htmlFor="name">Name</label>
-            <input id="name" name="name" {...register("name")} />
-            {errors.name && <div>errors.name.message</div>}
+            <input type="text" name="name" id="name" />
           </div>
+
           <div className="form-element">
             <label htmlFor="email">Email</label>
-            <input
-              id="email"
-              type="email"
-              name="email"
-              {...register("email", {
-                required: "Email is required",
-                pattern: {
-                  value: EMAIL_REGEX,
-                  message: "Invalid email address",
-                },
-              })}
-            />
-            {errors.email && <div>errors.email.message</div>}
+            <input type="email" name="email" id="email" />
           </div>
+
           <div className="form-element">
             <label htmlFor="subject">Subject</label>
-            <input id="subject" name="subject" {...register("subject")} />
+            <input type="text" name="subject" id="subject" />
           </div>
+
           <div className="form-element message">
             <label htmlFor="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              {...register("message", { required: "Message is required" })}
-            ></textarea>
-            {errors.message && <div>errors.message.message</div>}
+            <textarea name="message" id="message"></textarea>
           </div>
-          <button
-            type="submit"
-            className="submit"
-            form="contact v2"
-            value="submit"
-          >
+
+          <button type="submit" className="submit">
             Send Message
           </button>
         </form>
