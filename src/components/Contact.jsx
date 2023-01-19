@@ -70,8 +70,13 @@ export default function Contact() {
           method="post"
           data-netlify="true"
           onSubmit="submit"
+          data-netlify-honeypot="bot-field"
         >
           <input type="hidden" name="form-name" value="contact v2" />
+
+          <div hidden>
+            <input name="bot-field" />
+          </div>
 
           <div className="form-element">
             <label htmlFor="name">Name</label>
@@ -80,7 +85,7 @@ export default function Contact() {
 
           <div className="form-element">
             <label htmlFor="email">Email</label>
-            <input type="email" name="email" id="email" />
+            <input type="email" name="email" id="email" required />
           </div>
 
           <div className="form-element">
@@ -90,7 +95,7 @@ export default function Contact() {
 
           <div className="form-element message">
             <label htmlFor="message">Message</label>
-            <textarea name="message" id="message"></textarea>
+            <textarea name="message" id="message" required></textarea>
           </div>
 
           <button type="submit" className="submit">
