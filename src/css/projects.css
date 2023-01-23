@@ -97,3 +97,7 @@
   transform: translateY(0px);
   transition: 0.5s all;
 }
+
+.tech-div {
+  padding: 5px;
+}

@@ -24,6 +24,12 @@ export default function ProjectCard(props) {
     window.open(props.webUrl, "_blank");
   };
 
+  // Stop propagation
+  // Would occur because button inside of clickable card element
+  function handleButtonClick(event) {
+    event.stopPropagation();
+  }
+
   return (
     <div>
       <Card
@@ -65,24 +71,31 @@ export default function ProjectCard(props) {
               <Typography variant="body2" color="white">
                 {props.description}
               </Typography>
-              <CardActions>
-                <Button
-                  size="small"
-                  className="card-btn"
-                  target="_blank"
-                  href={props.githubUrl}
-                >
-                  Github
-                </Button>
-                <Button
-                  size="small"
-                  className="card-btn"
-                  target="_blank"
-                  href={props.webUrl}
-                >
-                  Website
-                </Button>
-              </CardActions>
+              <div className="tech-div">
+                <Typography variant="body4" color="white">
+                  Tech used: {props.tech}
+                </Typography>
+              </div>
+              {/* <CardActions> */}
+              <Button
+                size="medium"
+                className="card-btn"
+                target="_blank"
+                href={props.githubUrl}
+                onClick={handleButtonClick}
+              >
+                Github
+              </Button>
+              <Button
+                size="medium"
+                className="card-btn"
+                target="_blank"
+                href={props.webUrl}
+                onClick={handleButtonClick}
+              >
+                Website
+              </Button>
+              {/* </CardActions> */}
             </CardContent>
           </div>
         </CardActionArea>
