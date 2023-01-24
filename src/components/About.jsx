@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-scroll";
-import Pdf from "../assets/Joban_CV.pdf";
+import Pdf from "../assets/Joban_Resume.pdf";
 import "../css/about.css";
 
 export default function About() {

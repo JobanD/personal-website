@@ -1,5 +1,5 @@
 import React from "react";
-import Pdf from "../assets/Joban_CV.pdf";
+import Pdf from "../assets/Joban_Resume.pdf";
 import "../css/contact.css";
 import { Typography, Avatar } from "@mui/material";
 import GithubPng from "../assets/github.png";

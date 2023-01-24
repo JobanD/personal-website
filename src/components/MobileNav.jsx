@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../css/mobileNav.css";
-import Pdf from "../assets/Joban_CV.pdf";
+import Pdf from "../assets/Joban_Resume.pdf";
 import { SvgIcon, Typography, Avatar } from "@mui/material";
 import { Link } from "react-scroll";
 import GithubPng from "../assets/github.png";
